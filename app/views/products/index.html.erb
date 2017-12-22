@@ -1,6 +1,7 @@
 <% @products.each do |product| %>
-<h1><%= product.id %>: <%= product.name %></h2>
-<div><%= truncate product.description %></div>
+<h1><%= product.name %></h2>
+<div id="body-<%= product.id %>"><%= truncate product.description %></div>
+<button class="js-more" data-id="<%= product.id %>" name="More Info"> More Info</button><br><br>
 <% end %>
 
 <script type ="text/javascript" charset="utf-8">
@@ -15,7 +16,7 @@ $(function() {
         debugger;
         $("#body-" +id).apprend("Available")
       }else{
-        $("#body-" + id).apprend("Sold Out")     
+        $("#body-" + id).apprend("Sold Out")
        }
     });
   });
