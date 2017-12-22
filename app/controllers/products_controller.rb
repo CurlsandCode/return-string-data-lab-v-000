@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
   def index
-    products = Products.all
-    render plain: products.description
+    @products = Product.all
+  end
+
+  def description 
+    product = Product.find(params[:id])
+    render plain: product.description
   end
 
 end
