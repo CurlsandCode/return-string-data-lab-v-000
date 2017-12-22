@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def description 
+  def description
     product = Product.find(params[:id])
     render plain: product.description
   end
