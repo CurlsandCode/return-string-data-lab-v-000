@@ -29,19 +29,12 @@ class ProductsController < ApplicationController
   end
 end
 
-  def edit
+  def show
+    @product = Product.find_by(id: params[:id])
   end
-
-  def update
-    @product.update(product_params)
-    redirect_to product_path (@product)
-   end
 
   private
 
-def set_product
-  @product = Product.find(params[:id])
-end
 def product_params
      params.require(:product).permit(
      :name,
